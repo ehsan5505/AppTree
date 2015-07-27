@@ -1,5 +1,14 @@
 source 'https://rubygems.org'
 
+# require
+gem 'simple_form'
+gem 'devise'
+# gem 'therubyracer'
+# gem 'less-rails'
+# gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -32,11 +41,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development,:test do
-	gem 'rspec-rails'
-end
-
 group :development, :test do
+  gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
