@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Statuses</h1>
+<h1>Tweets...</h1>
 
-<table>
+<!-- <table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -23,7 +23,24 @@
     <% end %>
   </tbody>
 </table>
+ -->
+<ul class="media">
+  <% @statuses.each do |status| %>
+    <li class="media media-list">
+      <h4><%= status.comment %></h4>
+      <em><%= status.user %></em>
+      <div>
+        <br/>
+        <%= link_to time_ago_in_words(status.created_at),status_path(status) %>
+        <%= link_to "Change",edit_status_path(status) %>
+        <%= link_to 'Delete',status, method: :delete, data: { confirm: 'Are you sure about this?' } %>
+      </div>
+      <hr/>
+
+    </li> 
+  <% end %>
+</ul>
 
 <br>
 
-<%= link_to 'New Status', new_status_path %>
+<%= link_to '+ Tweet', new_status_path,:class=>"btn btn-default" %>
