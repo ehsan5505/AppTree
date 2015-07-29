@@ -24,23 +24,41 @@
   </tbody>
 </table>
  -->
-<ul class="media">
-  <% @statuses.each do |status| %>
-    <li class="media media-list">
-      <h4><%= status.comment %></h4>
-      <em><%= status.user %></em>
-      <div>
-        <br/>
-        <%= link_to time_ago_in_words(status.created_at),status_path(status) %>
-        <%= link_to "Change",edit_status_path(status) %>
-        <%= link_to 'Delete',status, method: :delete, data: { confirm: 'Are you sure about this?' } %>
-      </div>
-      <hr/>
-
-    </li> 
-  <% end %>
-</ul>
-
-<br>
-
+<div class="col-md-push-8">
 <%= link_to '+ Tweet', new_status_path,:class=>"btn btn-default" %>
+</div>
+
+<% @statuses.each do |status| %>
+  <div class="media row">
+    <div class="media-left col-md-1">
+      <a href="#">
+        <img class="media-object" src="#" width="64" height="64" alt="ImageShot">
+      </a>
+    </div>
+    <div class="media-body col-md-7">
+      <h4 class="media-heading"><%= status.user %></h4>
+      <p> <%= status.comment %> </p>
+    </div>
+    <div class="col-md-2 btn-group">
+      <%= link_to time_ago_in_words(status.created_at),status,:class=>"btn btn-sm btn-default" %>
+      <%= link_to "EDIT",edit_status_path(status),:class=>"btn btn-sm btn-default" %>
+      <%= link_to "DEL",status,method: :delete, data:{confirm:"Are you Sure?"},:class=>"btn btn-sm btn-default" %>
+    </div>
+  </div>
+<% end %>
+
+<!-- <ul class="media-list">
+<%= @statuses.each do |status| %>
+  <li class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="..." width="100px" height="100px" alt="...">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= status.user %></h4>
+      <p><%= status.comment %></p>
+    </div>
+  </li>
+  <% end %>
+</ul> -->

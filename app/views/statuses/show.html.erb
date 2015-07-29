@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @status.user %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @status.comment %>
-</p>
-
-<%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4>
+		  <%= @status.user %>
+		</h4>
+	</div>
+	<div class="panel-body">
+		<p>
+		  <%= @status.comment %>
+		</p>
+	</div>
+</div>
+<div class="btn-group col-md-push-5">
+	<%= link_to 'Edit', edit_status_path(@status),:class=>"btn btn-default" %>
+	<%= link_to 'Back', statuses_path,:class=>"btn btn-default" %>
+</div>

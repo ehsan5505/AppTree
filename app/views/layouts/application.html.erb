@@ -6,19 +6,21 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="container container-fluid">
+<body class="container" style="padding-top:50px">
 
 	<header>
-		<nav class="nav">
-		
+		<nav class="navbar navbar-default navbar-fixed-top">
+		<%= link_to "ESS Soft Core",:root,:class=>"navbar-brand" %>
 		</nav>
 	<header>
 
 <%= yield %>
 
 
-	<footer>
+	<footer class="panel panel-default" style="margin-top:50px">
+	<div class="panel-heading">
 		<p>&copy;All Right Reserved By ESS Indepencies Soft</p>
+		</div>
 	</footer>
 </body>
 </html>
