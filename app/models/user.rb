@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
  
   has_many :statuses
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :username, presence: true
 
   def fullName
   	first_name+" "+last_name
