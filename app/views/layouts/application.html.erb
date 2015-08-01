@@ -13,8 +13,11 @@
 		<%= link_to "ESS Soft Core",:root,:class=>"navbar-brand" %>
 		</nav>
 	<header>
+	<% if flash[:notice] %>
 	<p class="alert alert-info"><%= flash[:notice] %></p>
-	<p class="alert alert-danger"><%= flash[:alert] %></p>
+	<% elsif flash[:alert] %>
+	<p class="alert alert-danger"><%= flash[:alert] if flash[:alert] %></p>
+	<% end %>
 
 <%= yield %>
 
