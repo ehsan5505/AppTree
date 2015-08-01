@@ -13,7 +13,7 @@
   <tbody>
     <% @statuses.each do |status| %>
       <tr>
-        <td><%= status.user %></td>
+        <td><%= status.user_id %></td>
         <td><%= status.comment %></td>
         <td><%= link_to 'Show', status %></td>
         <td><%= link_to 'Edit', edit_status_path(status) %></td>
@@ -35,7 +35,7 @@
       </a>
     </div>
     <div class="media-body col-md-7">
-      <h4 class="media-heading"><%= status.user %></h4>
+      <h4 class="media-heading"><%= status.user_id %></h4>
       <p> <%= status.comment %> </p>
     </div>
     <div class="col-md-2 btn-group">
@@ -55,7 +55,7 @@
       </a>
     </div>
     <div class="media-body">
-      <h4 class="media-heading"><%= status.user %></h4>
+      <h4 class="media-heading"><%= status.user_id %></h4>
       <p><%= status.comment %></p>
     </div>
   </li>
