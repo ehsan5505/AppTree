@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+// $("document").ready(	$("div.dia.row").hover(function(){ $(this).children("div.col-md-3").toggleClass("hidden");  }) );

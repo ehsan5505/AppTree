@@ -1,28 +1,6 @@
 
-<h1>Tweets...</h1>
+<h1>Tweets ...</h1>
 
-<!-- <table class="table">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Comment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @statuses.each do |status| %>
-      <tr>
-        <td><%= status.user_id %></td>
-        <td><%= status.comment %></td>
-        <td><%= link_to 'Show', status %></td>
-        <td><%= link_to 'Edit', edit_status_path(status) %></td>
-        <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
- -->
 <div class="col-md-push-8">
 <%= link_to '+ Tweet', new_status_path,:class=>"btn btn-default" %>
 </div>
@@ -35,10 +13,10 @@
       </a>
     </div>
     <div class="media-body col-md-7">
-      <h4 class="media-heading"><%= status.user_id %></h4>
+      <h4 class="media-heading"><%= status.user.fullName %></h4>
       <p> <%= status.comment %> </p>
     </div>
-    <div class="col-md-2 btn-group">
+    <div class="col-md-3 btn-group hidden">
       <%= link_to time_ago_in_words(status.created_at),status,:class=>"btn btn-sm btn-default" %>
       <%= link_to "EDIT",edit_status_path(status),:class=>"btn btn-sm btn-default" %>
       <%= link_to "DEL",status,method: :delete, data:{confirm:"Are you Sure?"},:class=>"btn btn-sm btn-default" %>
@@ -46,18 +24,8 @@
   </div>
 <% end %>
 
-<!-- <ul class="media-list">
-<%= @statuses.each do |status| %>
-  <li class="media">
-    <div class="media-left">
-      <a href="#">
-        <img class="media-object" src="..." width="100px" height="100px" alt="...">
-      </a>
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading"><%= status.user_id %></h4>
-      <p><%= status.comment %></p>
-    </div>
-  </li>
-  <% end %>
-</ul> -->
+<script type="text/javascript">
+  jQuery.ready( 
+  $("div.media.row").hover(function(){ $(this).find("div.col-md-3").toggleClass("hidden") } )
+);
+</script>
