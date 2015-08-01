@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
  
   has_many :statuses
+
+
+  def fullName
+  	first_name+" "+last_name
+  end
+
 end
