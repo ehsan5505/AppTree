@@ -11,6 +11,17 @@
 	<header>
 		<nav class="navbar navbar-default navbar-fixed-top">
 		<%= link_to "ESS Soft Core",:root,:class=>"navbar-brand" %>
+	
+		<ul class="nav navbar-nav pull-right">
+		<% if user_signed_in? %>
+			<li><%= link_to current_user.fullName,edit_user_registration_path %></li>
+			<li><%= link_to "Log OFF",destroy_user_session_path,method: :delete %></li>
+		<% else %>
+			<li><%= link_to "Register",new_user_registration_path %>
+			<li><%= link_to "Log IN",user_session_path %>
+		<% end %>
+		</ul>
+
 		</nav>
 	<header>
 	<% if flash[:notice] %>
@@ -21,7 +32,7 @@
 
 <%= yield %>
 
-
+	<span class="clearfix"></span>
 	<footer class="panel panel-default" style="margin-top:50px">
 	<div class="panel-heading">
 		<p>&copy;All Right Reserved By ESS Indepencies Soft</p>
