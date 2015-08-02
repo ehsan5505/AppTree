@@ -10,26 +10,26 @@
 
 	<header>
 		<nav class="navbar navbar-default navbar-fixed-top">
-		<%= link_to "ESS Soft Core",:root,:class=>"navbar-brand" %>
-	
+		<%= link_to "ESS Soft Core",feed_path,:class=>"navbar-brand" %>
 		<ul class="nav navbar-nav pull-right">
 		<% if user_signed_in? %>
 			<li><%= link_to current_user.fullName,edit_user_registration_path %></li>
-			<li><%= link_to "Log OFF",destroy_user_session_path,method: :delete %></li>
+			<li><%= link_to "Log OFF",logout_path %></li>
 		<% else %>
-			<li><%= link_to "Register",new_user_registration_path %>
-			<li><%= link_to "Log IN",user_session_path %>
+			<li><%= link_to "Register",register_path %>
+			<li><%= link_to "Log IN",login_path %>
 		<% end %>
 		</ul>
 
 		</nav>
 	<header>
-	<% if flash[:notice] %>
-	<p class="alert alert-info"><%= flash[:notice] %></p>
-	<% elsif flash[:alert] %>
-	<p class="alert alert-danger"><%= flash[:alert] if flash[:alert] %></p>
+	<% flash.each do |type,msg| %>
+	<div class="alert <%= flash_card type %>">
+		<button class="close" data-dismiss="alert">x</button>
+		<%= msg %>
+	</div>
 	<% end %>
-
+	
 <%= yield %>
 
 	<span class="clearfix"></span>
