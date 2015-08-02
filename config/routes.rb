@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  # get 'profile/show'
+
   devise_for :users
   resources :statuses
   # The priority is based upon order of creation: first created -> highest priority.
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   get "feed",         to: "statuses#index",            :as => :feed
+  get "/:id", to: "profile#show", :as => :profile  
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
