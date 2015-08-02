@@ -13,9 +13,11 @@
   <% end %>
 
   <div class="form-group field">
-      <%= form.label :user_id,:class=>"col-md-2 control-label" %>
+      <span class="col-md-2"></span>
+      <!--  <%= form.label :user_id,:class=>"col-md-2 control-label" %> -->
     <span class="col-md-5">
-      <%= form.text_field :user_id,:class=>"form-control" %>
+  <!--     <%= form.text_field :user_id,collection:User.all ,:class=>"form-control" %> -->
+      <%= form.input :user_id,collection: User.all,label_method: :fullName %>
     </span>
   </div>
   <div class="form-input field">
