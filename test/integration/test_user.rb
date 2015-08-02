@@ -19,4 +19,18 @@ class UserTest < ActiveSupport::TestCase
 		assert !user.errors[:username].empty?
 	end
 
+	test "validates the uniqueness of the username for user" do
+		# user = User.new
+		# user.username = "ehsan5505"
+		# user.email = "ehsan5505@gmil.com"
+		# user.first_name = "Ehsan"
+		# user.last_name = "Rafeeque"
+		# user.password = "ehsan5505"
+		# user.password_confirmation = "ehsan5505"
+		# # user.username = "ehsan5505"
+		# assert user.save()
+		# puts user.errors.inspect
+		# assert user.errors[:username].empty?
+	end
+
 end

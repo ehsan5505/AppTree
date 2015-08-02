@@ -25,6 +25,12 @@ RSpec.describe User, type: :model do
   		expect(user.errors[:username].empty?).to be false
   	end
 
+  	it "validates uniqueness of the username" do
+  		user = User.new
+  		user.username = "ehsan5505"
+  		user.save()
+  		puts user.errors.inspect
+  	end
 
   end
 
