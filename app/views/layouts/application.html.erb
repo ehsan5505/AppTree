@@ -13,6 +13,7 @@
 		<%= link_to "ESS Soft Core",feed_path,:class=>"navbar-brand" %>
 		<ul class="nav navbar-nav pull-right">
 		<% if user_signed_in? %>
+			<%= link_to image_tag(current_user.gravatar,:class=>"pix-nav img-circle"),current_user.username %>
 			<li><%= link_to current_user.fullName,edit_user_registration_path %></li>
 			<li><%= link_to "Log OFF",logout_path %></li>
 		<% else %>

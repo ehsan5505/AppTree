@@ -8,9 +8,7 @@
 <% @statuses.each do |status| %>
   <div class="media row">
     <div class="media-left col-md-1">
-      <a href="#">
-        <img class="media-object" src="#" width="64" height="64" alt="ImageShot">
-      </a>
+      <%= link_to image_tag(status.user.gravatar),status.user.username %>
     </div>
     <div class="media-body col-md-7">
       <h4 class="media-heading"><%= status.user.fullName %></h4>
